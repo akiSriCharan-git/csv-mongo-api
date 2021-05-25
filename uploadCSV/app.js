@@ -52,7 +52,11 @@ app.post('/csvUpload', upload.single('csv'), async (req, res)=>{
   }catch(err){
     console.log(err)
   }
-})
+});
+
+app.get('/', (req, res)=>{
+	res.send("please use postman to post data using '/csvUpload' route")
+	})
 const port = process.env.PORT || 8000
 app.listen(port, ()=>{
   console.log('uploadCSV server running on port '+port)
