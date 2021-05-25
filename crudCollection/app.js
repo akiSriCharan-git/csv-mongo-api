@@ -28,7 +28,10 @@ const rest = require('./controller/rest')
 //SIGNUP AND LOGIN
 app.post('/register', controller.Signup);
 app.post('/login', controller.Login);
-app.get('/', verifyToken, controller.Hello);
+app.get('/', (req, res)=>{
+	res.send("please register or login using postman and access crud operations on collections using '/collectionName'. (if you want to perform crud operations on a collection named youtube then access it using '/youtube' route)")
+	});
+	
 
 //GET
 app.get('/:collection', verifyToken, rest.getAll);
